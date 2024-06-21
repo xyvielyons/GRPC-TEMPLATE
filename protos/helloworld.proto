@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+service Greetings {
+    rpc Greet (GreetingsRequest) returns (GreetingsResponse) {}
+    rpc GreetServerStreaming (GreetingsRequest) returns (stream GreetingsResponse) {}
+    rpc GreetClientStreaming (stream GreetingsRequest) returns (GreetingsResponse) {}
+    rpc GreetBiDirectionalStreaming (stream GreetingsRequest) returns (stream GreetingsResponse) {}
+    
+}
+message GreetingsRequest{
+    string name = 1;
+}
+
+message GreetingsResponse{
+    string message = 1;
+}
+
